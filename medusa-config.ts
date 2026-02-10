@@ -6,7 +6,7 @@ module.exports = defineConfig({
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
     databaseDriverOptions: process.env.NODE_ENV !== "development" ?
-      { connection: { ssl: { rejectUnauthorized: false } } } : {},
+      {} : {},
 
     http: {
       storeCors: process.env.STORE_CORS!,
@@ -15,10 +15,10 @@ module.exports = defineConfig({
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
-    cookieOptions: {
-      secure: false,
-      sameSite: "lax",
-    },
+    // cookieOptions: {
+    //   secure: false,
+    //   sameSite: "lax",
+    // },
     workerMode: process.env.WORKER_MODE as "shared" | "worker" | "server",
     redisUrl: process.env.REDIS_URL,
 
